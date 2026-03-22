@@ -1,0 +1,10 @@
+{
+  "providers": [
+    {
+      "type": "ttf",
+      "file": "the_last_timelord_support:xanhmono-regular.ttf",
+      "size": 10,
+      "oversample": 3.0
+    }
+  ]
+}
