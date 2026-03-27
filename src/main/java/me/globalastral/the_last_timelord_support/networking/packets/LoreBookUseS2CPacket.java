@@ -16,7 +16,7 @@ public class LoreBookUseS2CPacket {
     }
 
     public LoreBookUseS2CPacket(FriendlyByteBuf buf) {
-        this.lore_level = buf.getInt(0);
+        this.lore_level = buf.readInt();
     }
 
     public void toBytes(FriendlyByteBuf buf) {

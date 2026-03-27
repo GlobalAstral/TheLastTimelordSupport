@@ -109,7 +109,7 @@ public class LoreBookScreen extends Screen {
 
     @Override
     protected void init() {
-        this.UNLOCKED_PAGES = new ArrayList<>(LoreBookPages.get_unlocked_pages(lore_level));
+        this.UNLOCKED_PAGES = LoreBookPages.get_unlocked_pages(lore_level);
         int i = (this.width - TEX_W) / 2;
         int j = (this.height - TEX_H) / 2;
         this.addRenderableWidget(new PageButton(i + 9, j + 160, button -> {
