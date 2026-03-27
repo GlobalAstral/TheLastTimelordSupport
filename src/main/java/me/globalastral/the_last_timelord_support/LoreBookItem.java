@@ -12,6 +12,8 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 
 public class LoreBookItem extends Item {
+    public static final String LORE_LEVEL_KEY = TheLastTimelordSupport.MODID + ":lore_level";
+
     public LoreBookItem(Properties pProperties) {
         super(pProperties);
     }
@@ -25,11 +27,11 @@ public class LoreBookItem extends Item {
 
         CompoundTag nbt = pPlayer.getPersistentData();
 
-        if (!nbt.contains(TheLastTimelordSupport.MODID + ":lore_level")) {
-            nbt.putInt(TheLastTimelordSupport.MODID + ":lore_level", 0);
+        if (!nbt.contains(LORE_LEVEL_KEY)) {
+            nbt.putInt(LORE_LEVEL_KEY, 0);
         }
 
-        int lore_level = nbt.getInt(TheLastTimelordSupport.MODID + ":lore_level");
+        int lore_level = nbt.getInt(LORE_LEVEL_KEY);
 
         ModMessages.sendToClient(new LoreBookUseS2CPacket(lore_level), (ServerPlayer) pPlayer);
 

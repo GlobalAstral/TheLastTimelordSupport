@@ -40,12 +40,15 @@ public class LorePagesListener extends SimpleJsonResourceReloadListener {
                 ArrayList<String> lines = new ArrayList<>();
 
                 pageObj.getAsJsonArray("content").forEach(line -> lines.add(line.getAsString()));
-
+                if (!pageObj.has("level") || !pageObj.get("level").isJsonPrimitive())
+                    return;
+                int level = pageObj.get("level").getAsInt();
                 PageBuilder builder = PageBuilder.create();
                 if (pageObj.has("title") && pageObj.get("title").isJsonPrimitive()) {
                     builder.set_title(pageObj.get("title").getAsString());
                 }
                 lines.forEach(builder::add_line);
+                builder.set_level(level);
                 LORE_PAGES.add(builder.end());
             });
         }

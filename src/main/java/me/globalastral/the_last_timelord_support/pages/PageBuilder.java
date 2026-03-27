@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class PageBuilder {
     private String title = "";
     private ArrayList<String> lines = new ArrayList<>();
+    private int level = 0;
 
     public static PageBuilder create() {
         return new PageBuilder();
@@ -23,7 +24,11 @@ public class PageBuilder {
     public PageBuilder add_line() {
         return this.add_line("");
     }
+    public PageBuilder set_level(int lvl) {
+        this.level = lvl;
+        return this;
+    }
     public LorePage end() {
-        return new LorePage(this.title, this.lines);
+        return new LorePage(this.title, this.lines, this.level);
     }
 }
