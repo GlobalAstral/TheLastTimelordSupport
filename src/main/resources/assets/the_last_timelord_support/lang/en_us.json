@@ -1,3 +1,4 @@
 {
-  "item.the_last_timelord_support.lore_book": "Diary"
+  "item.the_last_timelord_support.lore_book": "Diary",
+  "commands.inclorelvl.success": "Incremented Lore level of %s by %d"
 }
