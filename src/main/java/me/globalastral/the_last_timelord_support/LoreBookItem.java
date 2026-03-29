@@ -22,7 +22,7 @@ public class LoreBookItem extends Item {
     public InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pUsedHand) {
         ItemStack stack = pPlayer.getItemInHand(pUsedHand);
         if (pLevel.isClientSide()) {
-            return InteractionResultHolder.fail(stack);
+            return InteractionResultHolder.pass(stack);
         }
 
         CompoundTag nbt = pPlayer.getPersistentData();

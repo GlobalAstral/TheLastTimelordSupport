@@ -33,11 +33,9 @@ public class IncrementLoreLevelCommand {
             nbt.putInt(LoreBookItem.LORE_LEVEL_KEY, current);
         }
 
-        if (pTargets.size() == 1)
-            pSource.sendSuccess(() -> Component.translatable("commands.inclorelvl.success", pTargets.iterator().next().getDisplayName(), amount), true);
-        else
-            pSource.sendSuccess(() -> Component.translatable("commands.inclorelvl.success", pTargets.size(), amount), true);
-
+        for (ServerPlayer player : pTargets) {
+            player.sendSystemMessage(Component.translatable("commands.inclorelvl.success", amount), true);
+        }
         return 1;
     }
 }
